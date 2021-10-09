@@ -9,7 +9,10 @@
 
 package controller;
 
+import bo.custom.ItemBo;
+import dto.ItemDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -28,6 +31,25 @@ public class ItemFormController {
     public TextField txtAvailableBrands;
     public Button btnsave;
 
-    public void saveOnAction(ActionEvent actionEvent) {
+    private ItemBo bo;
+
+    public void saveOnAction(ActionEvent actionEvent) throws Exception {
+        boolean isSaved = bo.saveItem(
+                new ItemDTO(txtProductID.getText(),txtProductName.getText(),txtDescription.getText(),txtSpecification.getText(),txtDisplayName.getText(),Boolean.parseBoolean(txtAvaliability.getText()),Boolean.parseBoolean(txtActiveState.getText()),txtAvailableBrands.getText()
+                ));
+        if (isSaved){
+            new Alert(Alert.AlertType.CONFIRMATION,"Success").showAndWait();
+
+        }else {
+            new Alert(Alert.AlertType.CONFIRMATION,"Unsuccess").showAndWait();
+        }
+        txtProductID.clear();
+        txtProductName.clear();
+        txtDescription.clear();
+        txtSpecification.clear();
+        txtDisplayName.clear();
+        txtAvaliability.clear();
+        txtActiveState.clear();
+        txtAvailableBrands.clear();
     }
 }
