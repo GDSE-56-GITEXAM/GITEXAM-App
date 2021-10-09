@@ -32,8 +32,28 @@ public class CustomerFormController {
 
     private CustomerBo bo;
 
-    public void SaveOnAction(ActionEvent actionEvent) {
+    public void SaveOnAction(ActionEvent actionEvent) throws Exception {
+        boolean isSaved = bo.saveCustomer(new CustomerDTO(txCusID.getText(),
+                txCustomerType.getText(),
+                txCustomerName.getText(),
+                txAddress.getText(),
+                txCity.getText(),
+                txProvince.getText(),
+                Integer.parseInt(txContact.getText()))
+        );
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Success").showAndWait();
 
+        } else {
+            new Alert(Alert.AlertType.CONFIRMATION, "Unsuccess").showAndWait();
+        }
+        txCusID.clear();
+        txCustomerType.clear();
+        txCustomerName.clear();
+        txAddress.clear();
+        txCity.clear();
+        txProvince.clear();
+        txContact.clear();
     }
     }
 
