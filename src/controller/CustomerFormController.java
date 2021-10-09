@@ -9,7 +9,10 @@
 
 package controller;
 
+import bo.custom.CustomerBo;
+import dto.CustomerDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -27,7 +30,11 @@ public class CustomerFormController {
     public TextField txContact;
     public Button btnSave;
 
+    private CustomerBo bo;
+
     public void SaveOnAction(ActionEvent actionEvent) {
 
     }
-}
+    }
+
+

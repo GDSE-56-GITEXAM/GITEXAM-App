@@ -25,6 +25,16 @@ public class Customer implements SuperEntity {
     public Customer() {
     }
 
+    public Customer(String customerID, String customeType, String customerName, String customerAddress, String city, String province, int contact) {
+        CustomerID = customerID;
+        CustomeType = customeType;
+        CustomerName = customerName;
+        CustomerAddress = customerAddress;
+        City = city;
+        Province = province;
+        Contact = contact;
+    }
+
     public String getCustomerID() {
         return CustomerID;
     }

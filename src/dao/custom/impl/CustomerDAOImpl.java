@@ -9,6 +9,7 @@
 
 package dao.custom.impl;
 
+import dao.CrudUtil;
 import dao.custom.CustomerDAO;
 import entity.Customer;
 
@@ -20,6 +21,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public boolean save(Customer customer) throws Exception {
-        return false;
+        return CrudUtil.execute("INSERT INTO Customer VALUES(?,?,?,?,?,?,?)",customer.getCustomerID(),customer.getCustomeType(),customer.getCustomerName(),customer.getCustomerAddress(),customer.getCity(),customer.getProvince(),customer.getContact());
     }
 }
