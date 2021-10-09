@@ -10,6 +10,7 @@
 package dao;
 
 import dao.custom.impl.CustomerDAOImpl;
+import dao.custom.impl.ItemDAOImpl;
 
 /**
  * @author : Hansani Sewwandi
@@ -24,14 +25,15 @@ public class DaoFactory {
 
     }
     public  enum  DAOType{
-        CUSTOMER
+        CUSTOMER,ITEM
     }
     public <T> T getDao(DAOType type){
         switch (type){
 
             case CUSTOMER:
                 return (T) new CustomerDAOImpl();
-
+            case ITEM:
+                return (T) new ItemDAOImpl();
             default:
                 return  null;
 

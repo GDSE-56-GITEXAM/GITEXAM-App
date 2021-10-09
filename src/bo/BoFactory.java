@@ -10,6 +10,7 @@
 package bo;
 
 import bo.custom.impl.CustomerBoImpl;
+import bo.custom.impl.ItemBoImpl;
 
 /**
  * @author : Hansani Sewwandi
@@ -32,7 +33,8 @@ public class BoFactory {
 
             case CUSTOMER:
                 return (T)new CustomerBoImpl();
-
+            case ITEM:
+                return (T)new ItemBoImpl();
                 default:
                 return  null;
         }
